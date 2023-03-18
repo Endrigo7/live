@@ -31,6 +31,14 @@ public class UserValidator {
     }
 
     private void validateSize(User user){
+        if(user.getGivenName().length() <= 0){
+            throw new InvalidFieldException("O nome deve ter pelo menos 1 caracter");
+        }
+
+        if(user.getSurname().length() <= 0){
+            throw new InvalidFieldException("O sobrenome deve ter pelo menos 1 caracter");
+        }
+
         if(user.getGivenName().length() >= 30){
             throw new InvalidFieldException("O nome deve ter no máximo 30 caracteres");
         }
